@@ -59,6 +59,7 @@ main()
   dark_gray='#011627'
   high_contrast_pane_border='#80a4c2'
   pane_border='#1d3b53'
+  blue='#82aaff',
   cyan='#21c7a8'
   green='#22da6e'
   orange='#f78c6c'
@@ -136,23 +137,23 @@ main()
       fi
 
       if $show_ram_usage; then
-	 tmux set-option -ga status-right "#[fg=${cyan},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${cyan}] #($current_dir/ram_info.sh)"
-	 powerbg=${cyan}
+	 tmux set-option -ga status-right "#[fg=${yellow},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${yellow}] #($current_dir/ram_info.sh)"
+	 powerbg=${yellow}
       fi
 
       if $show_cpu_usage; then
-	 tmux set-option -ga status-right "#[fg=${orange},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${orange}] #($current_dir/cpu_info.sh)"
-	 powerbg=${orange}
+	 tmux set-option -ga status-right "#[fg=${red},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${red}] #($current_dir/cpu_info.sh)"
+	 powerbg=${red}
       fi
 
       if $show_gpu_usage; then
-	 tmux set-option -ga status-right "#[fg=${pink},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${pink}] #($current_dir/gpu_usage.sh)"
-	 powerbg=${pink}
+	 tmux set-option -ga status-right "#[fg=${cyan},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${cyan}] #($current_dir/gpu_usage.sh)"
+	 powerbg=${cyan}
       fi	
 
       if $show_network; then # network
-        tmux set-option -ga status-right "#[fg=${cyan},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${cyan}] #($current_dir/network.sh)"
-        powerbg=${cyan}
+        tmux set-option -ga status-right "#[fg=${blue},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${blue}] #($current_dir/network.sh)"
+        powerbg=${blue}
       fi
 
       if $show_weather; then # weather
@@ -178,19 +179,19 @@ main()
         tmux set-option -g  status-right "#[fg=${dark_gray},bg=${pink}] #($current_dir/battery.sh) "
       fi
       if $show_ram_usage; then
-	tmux set-option -ga status-right "#[fg=${dark_gray},bg=${cyan}] #($current_dir/ram_info.sh) "
+	tmux set-option -ga status-right "#[fg=${dark_gray},bg=${yellow}] #($current_dir/ram_info.sh) "
       fi
 
       if $show_cpu_usage; then
-	tmux set-option -ga status-right "#[fg=${dark_gray},bg=${orange}] #($current_dir/cpu_info.sh) "
+	tmux set-option -ga status-right "#[fg=${dark_gray},bg=${red}] #($current_dir/cpu_info.sh) "
       fi
 
       if $show_gpu_usage; then
-	tmux set-option -ga status-right "#[fg=${dark_gray},bg=${pink}] #($current_dir/gpu_usage.sh) "
+	tmux set-option -ga status-right "#[fg=${dark_gray},bg=${cyan}] #($current_dir/gpu_usage.sh) "
       fi	
 
       if $show_network; then # network
-        tmux set-option -ga status-right "#[fg=${dark_gray},bg=${cyan}] #($current_dir/network.sh) "
+        tmux set-option -ga status-right "#[fg=${dark_gray},bg=${blue}] #($current_dir/network.sh) "
       fi
 
       if $show_weather; then # weather
