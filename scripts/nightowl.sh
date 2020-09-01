@@ -43,7 +43,8 @@ main()
   brightCyan='#7fdbca'
   cyan='#21c7a8'
   green='#22da6e'
-  orange='#f78c6c'
+  brightOrange='#f78c6c'
+  orange='#df5f00'
   red='#ef5350'
   pink='#c792ea'
   brightYellow="#ffeb95"
