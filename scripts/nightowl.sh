@@ -130,8 +130,8 @@ main()
       fi
 
       if $show_gpu_usage; then
-	 tmux set-option -ga status-right "#[fg=${blue},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${blue}] #($current_dir/gpu_usage.sh)"
-	 powerbg=${blue}
+	 tmux set-option -ga status-right "#[fg=${brightOrange},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${brightOrange}] #($current_dir/gpu_usage.sh)"
+	 powerbg=${brightOrange}
       fi
 
       if $show_network; then # network
@@ -140,8 +140,8 @@ main()
       fi
 
       if $show_weather; then # weather
-        tmux set-option -ga status-right "#[fg=${brightOrange},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${brightOrange}] #(cat $current_dir/../data/weather.txt)"
-        powerbg=${brightOrange}
+        tmux set-option -ga status-right "#[fg=${blue},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${blue}] #(cat $current_dir/../data/weather.txt)"
+        powerbg=${blue}
       fi
 
       if $show_military; then # military time
@@ -150,7 +150,7 @@ main()
 	tmux set-option -ga status-right "#[fg=${orange},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${white},bg=${orange}] %a %m/%d %I:%M %p ${timezone} "
       fi
 
-      tmux set-window-option -g window-status-current-format "#[fg=${white},bg=${gray}]${left_sep}#[fg=${gray},bg=${white}] #I #W #[fg=${gray},bg=${white}]${left_sep}"
+      tmux set-window-option -g window-status-current-format "#[fg=${white},bg=${pane_border}]${left_sep}#[fg=${pane_border},bg=${white}] #I #W #[fg=${pane_border},bg=${white}]${left_sep}"
 
   # Non Powerline Configuration
   else
@@ -187,7 +187,7 @@ main()
 	tmux set-option -ga status-right "#[fg=${white},bg=${orange}] %a %m/%d %I:%M %p ${timezone} "
       fi
 
-      tmux set-window-option -g window-status-current-format "#[fg=${white},bg=${orange}] #I #W "
+      tmux set-window-option -g window-status-current-format "#[fg=${white},bg=${pane_border}] #I #W "
 
   fi
 
