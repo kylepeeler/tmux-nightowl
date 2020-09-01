@@ -112,7 +112,7 @@ main()
 
       tmux set-option -g status-left "#[bg=${green},fg=${dark_gray}]#{?client_prefix,#[bg=${yellow}],} ${left_icon} #[fg=${green},bg=${gray}]#{?client_prefix,#[fg=${yellow}],}${left_sep}"
       tmux set-option -g  status-right ""
-      powerbg=${green}
+      powerbg=${gray}
 
       if $show_battery; then # battery
         tmux set-option -g  status-right "#[fg=${pink},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${pink}] #($current_dir/battery.sh)"
@@ -150,7 +150,7 @@ main()
 	tmux set-option -ga status-right "#[fg=${orange},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${white},bg=${orange}] %a %m/%d %I:%M %p ${timezone} "
       fi
 
-      tmux set-window-option -g window-status-current-format "#[fg=${white},bg=${pane_border}]${left_sep}#[fg=${pane_border},bg=${white}] #I #W #[fg=${pane_border},bg=${white}]${left_sep}"
+      tmux set-window-option -g window-status-current-format "#[fg=${dark_gray},bg=${dark_gray}]${left_sep}#[fg=${white},bg=${dark_gray}] #I #W #[fg=${dark_gray},bg=${dark_gray}]${left_sep}"
 
   # Non Powerline Configuration
   else
