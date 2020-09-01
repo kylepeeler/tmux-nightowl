@@ -139,8 +139,8 @@ main()
       fi
 
       if $show_weather; then # weather
-        tmux set-option -ga status-right "#[fg=${red},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${red}] #(cat $current_dir/../data/weather.txt)"
-        powerbg=${red}
+        tmux set-option -ga status-right "#[fg=${orange},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${orange}] #(cat $current_dir/../data/weather.txt)"
+        powerbg=${orange}
       fi
 
       if $show_military; then # military time
@@ -177,7 +177,7 @@ main()
       fi
 
       if $show_weather; then # weather
-          tmux set-option -ga status-right "#[fg=${dark_gray},bg=${red}] #(cat $current_dir/../data/weather.txt) "
+          tmux set-option -ga status-right "#[fg=${dark_gray},bg=${orange}] #(cat $current_dir/../data/weather.txt) "
       fi
 
       if $show_military; then # military time
