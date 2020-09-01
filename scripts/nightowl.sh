@@ -33,40 +33,22 @@ main()
   show_gpu_usage=$(get_tmux_option "@nightowl-gpu-usage" false)
 
 
-  # Available Night Owl Colors:
-  # #011627 Background
-  # #d6deeb Foreground
-  # #01111d Current Line
-  # #1d3b53 Selection
-  # #80a4c2 Cursor
-  # #4b6479 Line Number
-  # #c5e4fd Current Line Number
-  # #7fdbca Tags/Keywords
-  # #637777 Comment
-  # #ef5350 Red
-  # #22da6e Green
-  # #addb67 Yellow
-  # #82aaff Blue
-  # #f78c6c Orange
-  # #c792ea Magenta
-  # #21c7a8 Cyan
-  # #ffffff White
-  # #575656 Bright Black
-
   # Night Owl Color Pallette
   white='#ffffff'
-  gray='#4b6479'
-  dark_gray='#011627'
-  high_contrast_pane_border='#80a4c2'
-  pane_border='#1d3b53'
+  gray='#0b2942'
+  dark_gray='#01111d'
+  high_contrast_pane_border='#64B5F6'
+  pane_border='#5f7e97'
   blue='#82aaff',
+  brightCyan='#7fdbca'
   cyan='#21c7a8'
   green='#22da6e'
   orange='#f78c6c'
   red='#ef5350'
   pink='#c792ea'
+  brightYellow="#ffeb95"
   yellow='#addb67'
-  
+
 
   # Handle left icon configuration
   case $show_left_icon in
@@ -105,7 +87,7 @@ main()
   # set clock to 12 hour by default
   tmux set-option -g clock-mode-style 12
 
-  # set length 
+  # set length
   tmux set-option -g status-left-length 100
   tmux set-option -g status-right-length 100
 
@@ -142,23 +124,23 @@ main()
       fi
 
       if $show_cpu_usage; then
-	 tmux set-option -ga status-right "#[fg=${red},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${red}] #($current_dir/cpu_info.sh)"
-	 powerbg=${red}
+	 tmux set-option -ga status-right "#[fg=${brightYellow},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${brightYellow}] #($current_dir/cpu_info.sh)"
+	 powerbg=${brightYellow}
       fi
 
       if $show_gpu_usage; then
-	 tmux set-option -ga status-right "#[fg=${cyan},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${cyan}] #($current_dir/gpu_usage.sh)"
-	 powerbg=${cyan}
-      fi	
+	 tmux set-option -ga status-right "#[fg=${blue},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${blue}] #($current_dir/gpu_usage.sh)"
+	 powerbg=${blue}
+      fi
 
       if $show_network; then # network
-        tmux set-option -ga status-right "#[fg=${blue},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${blue}] #($current_dir/network.sh)"
-        powerbg=${blue}
+        tmux set-option -ga status-right "#[fg=${cyan},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${cyan}] #($current_dir/network.sh)"
+        powerbg=${cyan}
       fi
 
       if $show_weather; then # weather
-        tmux set-option -ga status-right "#[fg=${orange},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${orange}] #(cat $current_dir/../data/weather.txt)"
-        powerbg=${orange}
+        tmux set-option -ga status-right "#[fg=${red},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${red}] #(cat $current_dir/../data/weather.txt)"
+        powerbg=${red}
       fi
 
       if $show_military; then # military time
@@ -168,7 +150,7 @@ main()
       fi
 
       tmux set-window-option -g window-status-current-format "#[fg=${gray},bg=${dark_purple}]${left_sep}#[fg=${white},bg=${dark_purple}] #I #W #[fg=${dark_purple},bg=${gray}]${left_sep}"
-  
+
   # Non Powerline Configuration
   else
     tmux set-option -g status-left "#[bg=${green},fg=${dark_gray}]#{?client_prefix,#[bg=${yellow}],} ${left_icon}"
@@ -183,19 +165,19 @@ main()
       fi
 
       if $show_cpu_usage; then
-	tmux set-option -ga status-right "#[fg=${dark_gray},bg=${red}] #($current_dir/cpu_info.sh) "
+	tmux set-option -ga status-right "#[fg=${dark_gray},bg=${brightYellow}] #($current_dir/cpu_info.sh) "
       fi
 
       if $show_gpu_usage; then
-	tmux set-option -ga status-right "#[fg=${dark_gray},bg=${cyan}] #($current_dir/gpu_usage.sh) "
-      fi	
+	tmux set-option -ga status-right "#[fg=${dark_gray},bg=${blue}] #($current_dir/gpu_usage.sh) "
+      fi
 
       if $show_network; then # network
-        tmux set-option -ga status-right "#[fg=${dark_gray},bg=${blue}] #($current_dir/network.sh) "
+        tmux set-option -ga status-right "#[fg=${dark_gray},bg=${cyan}] #($current_dir/network.sh) "
       fi
 
       if $show_weather; then # weather
-          tmux set-option -ga status-right "#[fg=${dark_gray},bg=${orange}] #(cat $current_dir/../data/weather.txt) "
+          tmux set-option -ga status-right "#[fg=${dark_gray},bg=${red}] #(cat $current_dir/../data/weather.txt) "
       fi
 
       if $show_military; then # military time
@@ -207,7 +189,7 @@ main()
       tmux set-window-option -g window-status-current-format "#[fg=${white},bg=${dark_purple}] #I #W "
 
   fi
-  
+
   tmux set-window-option -g window-status-format "#[fg=${white}]#[bg=${gray}] #I #W "
 }
 
