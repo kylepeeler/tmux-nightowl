@@ -170,7 +170,7 @@ main()
       fi
 
       if $show_gpu_usage; then
-	tmux set-option -ga status-right "#[fg=${dark_gray},bg=${blue}] #($current_dir/gpu_usage.sh) "
+	tmux set-option -ga status-right "#[fg=${dark_gray},bg=${brightOrange}] #($current_dir/gpu_usage.sh) "
       fi
 
       if $show_network; then # network
@@ -178,7 +178,7 @@ main()
       fi
 
       if $show_weather; then # weather
-          tmux set-option -ga status-right "#[fg=${dark_gray},bg=${brightOrange}] #(cat $current_dir/../data/weather.txt) "
+          tmux set-option -ga status-right "#[fg=${dark_gray},bg=${blue}] #(cat $current_dir/../data/weather.txt) "
       fi
 
       if $show_military; then # military time
