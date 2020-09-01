@@ -7,7 +7,7 @@
 Install using tpm
 If you are a tpm user, you can install the theme and keep up to date by adding the following to your .tmux.conf file:
 
-set -g @plugin 'kylepeeler/nightowl-tmux'
+set -g @plugin 'kylepeeler/tmux-nightowl'
 
 ## Activating theme
 
