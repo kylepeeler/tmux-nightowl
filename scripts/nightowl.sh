@@ -112,7 +112,7 @@ main()
 
       tmux set-option -g status-left "#[bg=${green},fg=${dark_gray}]#{?client_prefix,#[bg=${yellow}],} ${left_icon} #[fg=${green},bg=${gray}]#{?client_prefix,#[fg=${yellow}],}${left_sep}"
       tmux set-option -g  status-right ""
-      powerbg=${gray}
+      powerbg=${green}
 
       if $show_battery; then # battery
         tmux set-option -g  status-right "#[fg=${pink},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${pink}] #($current_dir/battery.sh)"
@@ -140,17 +140,17 @@ main()
       fi
 
       if $show_weather; then # weather
-        tmux set-option -ga status-right "#[fg=${orange},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${orange}] #(cat $current_dir/../data/weather.txt)"
-        powerbg=${orange}
+        tmux set-option -ga status-right "#[fg=${brightOrange},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${brightOrange}] #(cat $current_dir/../data/weather.txt)"
+        powerbg=${brightOrange}
       fi
 
       if $show_military; then # military time
-	tmux set-option -ga status-right "#[fg=${dark_purple},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${white},bg=${dark_purple}] %a %m/%d %R ${timezone} "
+	tmux set-option -ga status-right "#[fg=${orange},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${white},bg=${orange}] %a %m/%d %R ${timezone} "
       else
-	tmux set-option -ga status-right "#[fg=${dark_purple},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${white},bg=${dark_purple}] %a %m/%d %I:%M %p ${timezone} "
+	tmux set-option -ga status-right "#[fg=${orange},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${white},bg=${orange}] %a %m/%d %I:%M %p ${timezone} "
       fi
 
-      tmux set-window-option -g window-status-current-format "#[fg=${gray},bg=${dark_purple}]${left_sep}#[fg=${white},bg=${dark_purple}] #I #W #[fg=${dark_purple},bg=${gray}]${left_sep}"
+      tmux set-window-option -g window-status-current-format "#[fg=${white},bg=${gray}]${left_sep}#[fg=${gray},bg=${white}] #I #W #[fg=${gray},bg=${white}]${left_sep}"
 
   # Non Powerline Configuration
   else
@@ -178,16 +178,16 @@ main()
       fi
 
       if $show_weather; then # weather
-          tmux set-option -ga status-right "#[fg=${dark_gray},bg=${orange}] #(cat $current_dir/../data/weather.txt) "
+          tmux set-option -ga status-right "#[fg=${dark_gray},bg=${brightOrange}] #(cat $current_dir/../data/weather.txt) "
       fi
 
       if $show_military; then # military time
-	tmux set-option -ga status-right "#[fg=${white},bg=${dark_purple}] %a %m/%d %R ${timezone} "
+	tmux set-option -ga status-right "#[fg=${white},bg=${orange}] %a %m/%d %R ${timezone} "
       else
-	tmux set-option -ga status-right "#[fg=${white},bg=${dark_purple}] %a %m/%d %I:%M %p ${timezone} "
+	tmux set-option -ga status-right "#[fg=${white},bg=${orange}] %a %m/%d %I:%M %p ${timezone} "
       fi
 
-      tmux set-window-option -g window-status-current-format "#[fg=${white},bg=${dark_purple}] #I #W "
+      tmux set-window-option -g window-status-current-format "#[fg=${white},bg=${orange}] #I #W "
 
   fi
 
